@@ -1,0 +1,2145 @@
+MASTER PROJECT PROMPT
+
+White-Label Restaurant Mobile Applications, Loyalty & Gamification SaaS Platform
+
+1. YOUR ROLE
+
+Act as a senior software architect, full-stack engineer, mobile application developer, database engineer, cybersecurity specialist, UI/UX designer, and technical product manager.
+
+Build a production-oriented, scalable software platform for a company that creates and manages independent, branded mobile applications for restaurants and coffee shops.
+
+The initial target market is Jordan, with future expansion into the Gulf Cooperation Council (GCC) countries.
+
+I am the business owner and will manage the platform, restaurant onboarding, application configuration, branding, quality assurance, releases, and publishing processes with my team.
+
+I want to use Replit as my primary AI-assisted development environment. I need you to implement the project in manageable phases, verify each phase, and maintain clear documentation.
+
+Do not merely explain how to build the product. Create the actual application, source code, database schema, migrations, interfaces, backend functionality, tests, and setup instructions.
+
+Do not attempt to implement every feature simultaneously. First establish a reliable foundation, then implement the remaining modules incrementally.
+
+⸻
+
+2. BUSINESS CONCEPT
+
+My company provides custom-branded mobile applications for independent restaurants, coffee shops, bakeries, burger restaurants, and other food-service businesses.
+
+Every restaurant receives its own independent customer-facing application with its own:
+
+* Application name.
+* Logo and visual identity.
+* Brand colors.
+* Menu and product catalog.
+* Restaurant locations and operating hours.
+* Online ordering functionality.
+* Payment workflow.
+* Loyalty points program.
+* Rewards catalog.
+* Gamification features.
+* Promotions and challenges.
+* Customer accounts and purchase history.
+* Push notifications.
+* Restaurant-specific settings.
+
+Each restaurant’s application should be designed to be published separately on the Apple App Store and Google Play Store.
+
+For example:
+
+1. Amman Coffee House.
+2. Jordan Burger Co.
+3. Petra Pizza.
+4. Sweet Spot Bakery.
+
+These are fictional demonstration businesses.
+
+Each application should have its own identity and customer experience. Customers should not have to download a generic application for all restaurants.
+
+However, all applications should use a common software platform, reusable application code, shared backend infrastructure, and centrally managed services.
+
+The architecture must allow my company to maintain and update the underlying product without rebuilding the entire system independently for every restaurant.
+
+Restaurant owners should be able to manage their menus, orders, rewards, and promotions through a restaurant-specific management dashboard.
+
+My company and authorized team members will retain control over application generation, configuration, testing, signing, release management, and store submission.
+
+Restaurant owners should not be able to independently publish applications through my platform.
+
+⸻
+
+3. PRIMARY BUSINESS MODEL
+
+The initial business model is:
+
+1. A one-time setup and onboarding fee for each restaurant.
+2. A recurring monthly or annual software subscription.
+3. Optional premium features and service packages in the future.
+4. Optional transaction-based fees in the future, subject to a clearly defined commercial and payment-processing model.
+
+The platform should support configurable subscription plans without hardcoding prices.
+
+Create a central subscription management module that allows administrators to:
+
+* Create subscription plans.
+* Set monthly and annual pricing.
+* Define plan features and limits.
+* Assign plans to restaurants.
+* Record setup fees.
+* Track subscription status.
+* Record invoices and payments.
+* Track trial periods.
+* Handle renewals, cancellations, and overdue accounts.
+* Restrict selected features when a subscription expires.
+
+For the prototype, subscription invoices and payments may be simulated if a payment provider has not been configured.
+
+Clearly distinguish simulated billing from real financial transactions.
+
+Do not charge restaurants automatically until a real billing integration has been configured, tested, and explicitly enabled.
+
+⸻
+
+4. TARGET MARKET AND LOCALIZATION
+
+The first market is Jordan.
+
+Build the system with the following requirements:
+
+* Jordanian dinar (JOD) as the initial business currency.
+* Arabic as the primary customer-facing language.
+* English as an additional language.
+* Full right-to-left (RTL) support for Arabic.
+* Left-to-right (LTR) support for English.
+* Arabic-compatible fonts.
+* Localized currency formatting.
+* Configurable restaurant time zones.
+* Asia/Amman as the default time zone.
+* Configurable phone number validation.
+* Support for Jordanian mobile numbers.
+* Configurable tax and receipt settings.
+* Configurable delivery fees.
+* Configurable minimum order amounts.
+* Configurable service areas.
+* Configurable pickup and delivery options.
+
+Do not hardcode Jordan-specific assumptions into the core business logic.
+
+Design the platform to support additional countries later, including Saudi Arabia, the United Arab Emirates, Kuwait, Qatar, Bahrain, and Oman.
+
+Country-specific configuration should include:
+
+* Currency.
+* Language defaults.
+* Time zone.
+* Payment providers.
+* Tax settings.
+* Phone number validation.
+* Delivery configuration.
+* Applicable invoice and receipt requirements.
+* Available integrations.
+
+Do not enable a new country merely by changing a currency setting. Document the additional payment, tax, legal, operational, and app-store requirements that must be verified before launching in that country.
+
+⸻
+
+5. APPLICATION ARCHITECTURE
+
+Build a centralized, multi-tenant SaaS platform.
+
+The system should contain five major components.
+
+A. Central Administration Platform
+
+Used by my company to manage:
+
+* Restaurants.
+* Restaurant accounts.
+* Application configurations.
+* Brand assets.
+* Restaurant staff.
+* Subscription plans.
+* Billing records.
+* Loyalty program settings.
+* Application builds.
+* Application releases.
+* Store submission workflows.
+* Platform analytics.
+* Audit logs.
+* System configuration.
+
+B. Restaurant Management Dashboard
+
+Each restaurant receives a secure management area with permissions restricted to its own business.
+
+Restaurant owners and authorized employees can manage:
+
+* Menu items.
+* Categories.
+* Product prices.
+* Product availability.
+* Orders.
+* Order statuses.
+* Rewards.
+* Loyalty rules.
+* Challenges.
+* Promotions.
+* Customer records.
+* Store locations.
+* Opening hours.
+* Delivery settings.
+* Notifications.
+* Business analytics.
+* Authorized staff.
+
+C. Customer Mobile Application
+
+Each restaurant has a separately branded customer application.
+
+The customer application includes:
+
+* Welcome and onboarding screens.
+* Registration and login.
+* Home screen.
+* Restaurant information.
+* Menu browsing.
+* Product details.
+* Shopping cart.
+* Checkout.
+* Payment.
+* Order tracking.
+* Order history.
+* Loyalty points.
+* Rewards catalog.
+* Reward redemption.
+* Challenges.
+* Membership tiers.
+* Achievements.
+* Notifications.
+* Customer profile.
+* Favorite items, where appropriate.
+* Support and contact information.
+
+D. Shared Backend
+
+The backend provides shared services for:
+
+* Authentication.
+* Restaurant configuration.
+* Menus.
+* Orders.
+* Payments.
+* Loyalty accounts.
+* Points accounting.
+* Reward redemption.
+* Gamification.
+* Notifications.
+* Analytics.
+* Audit logging.
+* Application configuration.
+
+E. Application Build and Release System
+
+This component manages the preparation of independent branded applications.
+
+It should support:
+
+* Restaurant-specific application configuration.
+* Application display name.
+* Application icon.
+* Splash screen.
+* Brand colors.
+* Bundle identifier configuration.
+* Android package identifier configuration.
+* Version numbering.
+* Build records.
+* Testing status.
+* Signing configuration references.
+* Release approval.
+* Submission status tracking.
+* Store listing information.
+* Release history.
+
+Do not claim to have published an application to either store unless the relevant external submission and approval have actually occurred.
+
+⸻
+
+6. TECHNOLOGY STACK
+
+Use Replit as the main development environment.
+
+Choose a practical stack that can be maintained by a small development team and expanded over time.
+
+Backend and Database
+
+Prefer:
+
+* TypeScript.
+* Node.js.
+* A well-structured backend framework or maintainable API architecture.
+* PostgreSQL.
+* Drizzle ORM or another suitable typed database ORM.
+* Secure server-side validation.
+* Database migrations.
+* Automated backend tests.
+
+A managed PostgreSQL database may be used through Replit’s supported database facilities or another compatible managed provider.
+
+Keep database credentials and privileged configuration on the server.
+
+Web Dashboard
+
+Use:
+
+* React.
+* TypeScript.
+* A modern routing solution.
+* Tailwind CSS.
+* Reusable UI components.
+* Accessible forms and navigation.
+* Responsive layouts.
+
+Mobile Applications
+
+Evaluate React Native with Expo as the preferred starting point for cross-platform iOS and Android applications.
+
+Use a reusable mobile application template that loads the correct restaurant configuration at runtime where appropriate.
+
+For separately published applications, configure unique application identifiers, display names, icons, splash screens, and brand assets.
+
+If runtime configuration alone is insufficient for a particular store requirement, implement a controlled build-time configuration and build process.
+
+Do not assume that one ordinary application binary can be submitted under many unrelated application identities without separate configuration and builds.
+
+Use appropriate build and signing tools, such as EAS Build or an equivalent compatible workflow, when required.
+
+Authentication
+
+Use a secure authentication solution that supports:
+
+* Email and password.
+* Password recovery.
+* Email verification where appropriate.
+* Secure session management.
+* Role-based access control.
+* Customer accounts.
+* Restaurant staff accounts.
+* Platform administrator accounts.
+
+Social login may be added later if it is appropriate for the launch requirements and store policies.
+
+File Storage
+
+Use a suitable object storage system for:
+
+* Restaurant logos.
+* Menu images.
+* Promotional banners.
+* Reward images.
+* Application icons.
+* Other brand assets.
+
+Validate uploaded file types and sizes.
+
+Do not allow uploaded files to execute as code.
+
+Payments
+
+Create a payment provider abstraction so that the platform is not permanently tied to one provider.
+
+Evaluate providers that support the intended Jordanian merchant, currency, payment methods, and settlement arrangements.
+
+Potential providers to investigate include regional payment gateways and international providers whose services are actually available to the merchant.
+
+Do not assume that Stripe or any other specific provider supports the exact Jordanian business model without verification.
+
+Document the provider selection criteria and any unresolved onboarding requirements.
+
+Never store raw payment card numbers or security codes in the application database.
+
+⸻
+
+7. MULTI-TENANT DATA ISOLATION
+
+This is a mandatory security requirement.
+
+Every restaurant must operate as an independent tenant within the shared platform.
+
+Every restaurant-owned record must be associated with the appropriate restaurant ID.
+
+The system must prevent one restaurant from accessing another restaurant’s private information.
+
+Examples:
+
+* Restaurant A cannot view Restaurant B’s customers.
+* Restaurant A cannot edit Restaurant B’s menu.
+* Restaurant A cannot view Restaurant B’s orders.
+* Restaurant A cannot view Restaurant B’s sales reports.
+* Restaurant A cannot change Restaurant B’s rewards.
+* Restaurant A cannot redeem Restaurant B’s reward inventory.
+* Restaurant A cannot view Restaurant B’s loyalty transactions.
+* Restaurant staff cannot access platform-wide administration.
+* Customers cannot view other customers’ private profiles or purchase history.
+
+Implement:
+
+* Server-side authorization.
+* Tenant membership validation.
+* Role-based access control.
+* Database constraints.
+* Appropriate row-level security where supported by the database architecture.
+* Audit logs for sensitive operations.
+* Automated tenant-isolation tests.
+
+Never trust a restaurant ID supplied by the browser without verifying the authenticated user’s access rights.
+
+Never rely solely on hiding interface elements to enforce security.
+
+Use the principle of least privilege.
+
+The platform administrator may access multiple tenants only through explicitly authorized administrative functions.
+
+⸻
+
+8. USER ROLES AND PERMISSIONS
+
+Implement these roles.
+
+Platform Super Administrator
+
+My highest-privilege administrative role.
+
+Can:
+
+* Create and manage restaurants.
+* Approve restaurant onboarding.
+* Configure application branding.
+* Manage application builds.
+* Manage releases and submissions.
+* Configure subscription plans.
+* Manage platform settings.
+* View platform-wide analytics.
+* Assign administrative permissions.
+* View security audit logs.
+* Suspend or reactivate restaurant accounts.
+
+Platform Operations Team
+
+Can perform only the administrative functions explicitly granted to them.
+
+Examples include:
+
+* Preparing restaurant branding.
+* Checking menu configuration.
+* Preparing mobile application builds.
+* Testing applications.
+* Managing store listing assets.
+* Tracking submission status.
+
+They should not automatically receive unrestricted access to billing or customer data.
+
+Restaurant Owner
+
+Can manage their own restaurant’s:
+
+* Menu.
+* Orders.
+* Rewards.
+* Loyalty program.
+* Promotions.
+* Customer engagement.
+* Staff.
+* Locations.
+* Reports.
+
+Cannot publish or reconfigure another restaurant’s application.
+
+Restaurant Manager
+
+Can manage operational functions according to permissions assigned by the restaurant owner.
+
+Restaurant Staff
+
+Can perform limited tasks, such as:
+
+* Confirming orders.
+* Updating permitted order statuses.
+* Verifying purchases.
+* Verifying reward redemptions.
+
+Customer
+
+Can:
+
+* Browse a restaurant’s menu.
+* Place orders.
+* Pay for eligible orders.
+* View personal loyalty points.
+* Earn eligible points.
+* Redeem rewards.
+* Participate in challenges.
+* View personal order and redemption history.
+* Manage permitted profile settings.
+
+Enforce permissions in the backend and database, not just the user interface.
+
+⸻
+
+9. INDEPENDENT BRANDED MOBILE APPLICATIONS
+
+This is one of the most important requirements.
+
+Each restaurant must have a distinct mobile application intended for publication under its own brand.
+
+Examples:
+
+* Amman Coffee House.
+* Jordan Burger Co.
+* Petra Pizza.
+
+Each application must have its own:
+
+* Display name.
+* App icon.
+* Splash screen.
+* Color scheme.
+* Typography settings where appropriate.
+* Menu.
+* Loyalty rules.
+* Rewards.
+* Promotions.
+* Customer-facing content.
+* Package or bundle identifier.
+* Store listing assets.
+* Release history.
+
+Shared Codebase
+
+Do not create and maintain completely unrelated source code for every restaurant.
+
+Create one reusable mobile application codebase with configurable restaurant-specific behavior.
+
+Use a controlled configuration system to generate restaurant-specific builds.
+
+A restaurant configuration should contain information such as:
+
+* Internal restaurant ID.
+* Display name.
+* Application identifier.
+* Logo asset.
+* Icon asset.
+* Splash screen asset.
+* Brand colors.
+* Default language.
+* Supported languages.
+* Backend environment.
+* Feature flags.
+* Supported restaurant locations.
+* Public support information.
+
+Do not place privileged API keys, secret tokens, or database credentials inside the mobile application configuration.
+
+Only expose the public information necessary for the application to function.
+
+Build Management
+
+Create an administrative workflow:
+
+1. Create the restaurant record.
+2. Collect branding assets.
+3. Configure the restaurant’s features.
+4. Configure its loyalty program.
+5. Configure its menu and locations.
+6. Preview the mobile application.
+7. Generate a development build.
+8. Test the build.
+9. Approve the release.
+10. Generate the production build.
+11. Prepare the store listing.
+12. Submit through the appropriate authorized publishing workflow.
+13. Record approval or rejection.
+14. Track versions and future updates.
+
+Automate repetitive build preparation where practical.
+
+Require human approval before production submission.
+
+The platform must retain a record of which configuration and source version produced each build.
+
+App Store and Google Play Compliance
+
+Design the system with store submission policies in mind.
+
+Do not assume that simply changing an application’s name, icon, and colors is sufficient for approval.
+
+Each branded application should provide genuine value to the restaurant’s customers, use the restaurant’s own content and services, and meet the applicable requirements for functionality, privacy, support, branding authorization, and account ownership.
+
+Research and document the current requirements concerning:
+
+* Template-based applications.
+* Repetitive or minimally differentiated applications.
+* Application ownership.
+* Developer account permissions.
+* Privacy disclosures.
+* Data collection.
+* Account deletion.
+* Payment processing.
+* App review.
+* Store listing requirements.
+
+Where practical, investigate whether a store-supported bulk publishing or custom app distribution approach is more appropriate for specific customers.
+
+Do not guarantee store approval.
+
+Do not bypass store policies or misrepresent application ownership.
+
+⸻
+
+10. CENTRAL ADMINISTRATION DASHBOARD
+
+Build a professional administrative dashboard for my company.
+
+Include the following sections.
+
+Overview
+
+Display:
+
+* Total restaurants.
+* Active restaurants.
+* Restaurants under onboarding.
+* Restaurants awaiting application builds.
+* Applications awaiting approval.
+* Applications ready for submission.
+* Active subscriptions.
+* Subscription revenue, where supported by real billing data.
+* Recent operational activity.
+* System health indicators.
+
+Restaurant Management
+
+Administrators should be able to:
+
+* Create a restaurant.
+* Edit restaurant details.
+* Upload logos and branding assets.
+* Configure application settings.
+* Configure supported languages.
+* Configure restaurant locations.
+* Configure menu settings.
+* Configure loyalty features.
+* Assign subscription plans.
+* Invite restaurant owners.
+* Suspend or reactivate a restaurant.
+
+Application Management
+
+Display:
+
+* Application name.
+* Restaurant.
+* Platform: iOS or Android.
+* Package or bundle identifier.
+* Current version.
+* Build number.
+* Build status.
+* Testing status.
+* Submission status.
+* Approval status.
+* Release history.
+* Last update date.
+
+Use clear statuses such as:
+
+* Draft.
+* Configuration incomplete.
+* Ready for preview.
+* Build queued.
+* Building.
+* Build failed.
+* Testing.
+* Approved internally.
+* Ready for submission.
+* Submitted.
+* Approved by store.
+* Rejected by store.
+* Released.
+
+Do not confuse internal approval with Apple or Google approval.
+
+Team Management
+
+Include:
+
+* Team member invitations.
+* Role assignments.
+* Permission management.
+* Account activation and suspension.
+* Audit history.
+
+Platform Settings
+
+Include:
+
+* Default language.
+* Supported countries.
+* Default currency.
+* Subscription configuration.
+* Payment provider configuration.
+* Notification configuration.
+* Security settings.
+* Application build settings.
+
+⸻
+
+11. RESTAURANT MANAGEMENT DASHBOARD
+
+Each restaurant receives its own branded management experience.
+
+Overview
+
+Display:
+
+* Total orders.
+* Pending orders.
+* Completed orders.
+* Active loyalty members.
+* Points earned.
+* Points redeemed.
+* Popular rewards.
+* Popular menu items.
+* Order value statistics.
+* Customer engagement metrics.
+
+Only display financial figures derived from actual recorded transactions.
+
+Clearly label seeded or simulated statistics.
+
+Menu Management
+
+Allow restaurant owners to:
+
+* Create categories.
+* Add menu items.
+* Edit descriptions.
+* Upload product images.
+* Set prices in JOD.
+* Set availability.
+* Configure optional modifiers.
+* Configure add-ons.
+* Configure size variations.
+* Mark products as temporarily unavailable.
+* Schedule availability where supported.
+
+Support Arabic and English product names and descriptions.
+
+Order Management
+
+Display:
+
+* Order number.
+* Customer.
+* Items.
+* Quantity.
+* Price.
+* Discount.
+* Delivery or pickup method.
+* Payment status.
+* Order status.
+* Order timestamp.
+
+Support order status transitions such as:
+
+* Pending payment.
+* Paid.
+* Confirmed.
+* Preparing.
+* Ready for pickup.
+* Out for delivery.
+* Completed.
+* Canceled.
+* Refund pending.
+* Refunded.
+
+Validate status transitions on the backend.
+
+Loyalty Management
+
+Allow authorized restaurant users to:
+
+* Choose a loyalty program type.
+* Configure earning rules.
+* Configure redemption rules.
+* Create rewards.
+* Configure reward limits.
+* Configure expiration rules.
+* Create promotions.
+* Create challenges.
+* Configure membership tiers.
+* Review customer loyalty activity.
+* Review reward redemption history.
+
+All changes must be logged.
+
+⸻
+
+12. CUSTOMER MOBILE APPLICATION EXPERIENCE
+
+The mobile application must look and feel like a professional restaurant application.
+
+Onboarding
+
+Include:
+
+* Branded splash screen.
+* Welcome screen.
+* Restaurant introduction.
+* Language selection.
+* Registration.
+* Login.
+* Password recovery.
+* Appropriate privacy disclosures.
+
+Home Screen
+
+Include:
+
+* Restaurant logo.
+* Welcome message.
+* Current loyalty points.
+* Membership tier.
+* Featured products.
+* Promotions.
+* Recommended rewards.
+* Active challenges.
+* Order shortcut.
+* Menu shortcut.
+* Order history shortcut.
+
+Menu
+
+Customers can:
+
+* Browse categories.
+* Search for items.
+* View item details.
+* Select sizes or modifiers.
+* Add products to a cart.
+* Update quantities.
+* Remove products.
+* View prices and applicable charges.
+
+The displayed menu and prices must come from the restaurant’s authoritative configuration.
+
+Cart
+
+Display:
+
+* Items.
+* Quantities.
+* Unit prices.
+* Modifiers.
+* Subtotal.
+* Discounts.
+* Delivery charges.
+* Taxes or other applicable charges.
+* Total.
+* Available reward options.
+* Loyalty points that may be earned.
+
+Clearly show the effect of discounts and redeemed rewards.
+
+Do not apply the same discount twice.
+
+Checkout
+
+Support:
+
+* Pickup.
+* Delivery, when enabled.
+* Customer contact details.
+* Delivery address.
+* Available delivery windows, if supported.
+* Order notes.
+* Payment selection.
+* Eligible rewards.
+* Order review.
+* Order confirmation.
+
+Prevent checkout with unavailable items or invalid prices.
+
+The backend must recalculate the order total and validate all discounts and rewards.
+
+Never trust prices or totals supplied by the client.
+
+Order Tracking
+
+Customers can see the current order status and a timestamped history of important changes.
+
+Push notifications can be added once a supported notification service has been configured.
+
+⸻
+
+13. LOYALTY ENGINE
+
+The loyalty engine is a core part of the business.
+
+It must be reusable but configurable independently for every restaurant.
+
+Do not hardcode one reward formula for all restaurants.
+
+Supported Loyalty Program Types
+
+Design the system to support:
+
+1. Points per eligible currency unit spent.
+2. Visit-based stamps.
+3. Purchase-count rewards.
+4. Spending milestones.
+5. Tier-based loyalty.
+6. Time-limited bonus campaigns.
+7. Product-specific bonus points.
+8. Birthday rewards.
+9. Referral rewards.
+10. Custom combinations of supported rules.
+
+Each restaurant can activate one or more compatible program types.
+
+Example: Points Per Purchase
+
+Suppose a restaurant offers 10 points per eligible JOD spent.
+
+A customer makes an eligible purchase of JOD 5.00.
+
+The customer earns 50 points.
+
+Another restaurant may offer 1 point per JOD or a completely different reward model.
+
+These examples are illustrative. All rules must be configurable.
+
+Points Calculation
+
+Use exact monetary representations, such as integer fils, or another carefully defined decimal-safe approach.
+
+Calculate points on the server.
+
+Define how the following affect eligible spending:
+
+* Discounts.
+* Taxes.
+* Delivery fees.
+* Service charges.
+* Refunded items.
+* Canceled orders.
+* Promotional bonuses.
+
+Use a documented default policy and make applicable rules configurable.
+
+Points Ledger
+
+Maintain an immutable transaction ledger containing:
+
+* Restaurant ID.
+* Loyalty account ID.
+* Transaction type.
+* Points earned or spent.
+* Related order or redemption.
+* Rule version.
+* Idempotency key.
+* Timestamp.
+* Reason or description.
+
+Never let customers directly modify their points balances.
+
+Any corrections must use explicit compensating transactions.
+
+Ensure that the available balance is consistent with the ledger.
+
+Additional Rules
+
+* Award purchase points only after the applicable order reaches the configured qualifying state.
+* Do not award points for failed payments.
+* Prevent duplicate point awards.
+* Reverse eligible points for refunds according to the restaurant’s policy.
+* Do not silently delete historical ledger entries.
+* Define how points expire.
+* Clearly disclose expiration rules.
+* Prevent customers from spending more points than they have.
+* Prevent concurrent redemptions from overspending the same balance.
+* Keep historical transactions understandable after a program’s rules change.
+
+⸻
+
+14. GAMIFICATION ENGINE
+
+Build a gamification system that encourages repeat visits without misleading customers.
+
+Challenges
+
+Examples:
+
+* Make three qualifying purchases this week.
+* Visit the restaurant five times this month.
+* Try two different menu categories.
+* Complete your first purchase.
+* Order on three separate days.
+* Complete a seasonal promotion.
+
+Each challenge should have:
+
+* Restaurant ID.
+* Title.
+* Description.
+* Start and end dates.
+* Eligibility rules.
+* Progress tracking.
+* Completion criteria.
+* Optional bonus points.
+* Optional reward.
+* Participation limits.
+* Status.
+
+Progress must be based on qualifying transactions and trusted backend events.
+
+Streaks
+
+Support configurable visit or purchase streaks.
+
+Examples:
+
+* Three visits on separate days.
+* Five qualifying visits in a defined period.
+* Three qualifying purchases on consecutive days.
+
+Define time zones, qualifying events, reset conditions, and duplicate event handling.
+
+Membership Tiers
+
+Allow each restaurant to configure its own tiers.
+
+Example:
+
+* Bronze.
+* Silver.
+* Gold.
+* Platinum.
+
+Define each tier’s qualification criteria and benefits.
+
+Keep available points separate from lifetime points and tier qualification metrics.
+
+Do not assume that points spent on rewards should reduce a customer’s tier status. Make the tier qualification method explicit.
+
+Achievements
+
+Examples:
+
+* First Purchase.
+* Loyal Customer.
+* Reward Collector.
+* Five Visits Completed.
+* Challenge Champion.
+* Seasonal Explorer.
+
+Award achievements only once per qualifying condition unless the restaurant intentionally configures a repeatable achievement.
+
+Customer Progress
+
+Display:
+
+* Current points.
+* Points required for the next reward.
+* Progress toward the next membership tier.
+* Active challenges.
+* Completed challenges.
+* Current streak.
+* Achievement badges.
+* Reward eligibility.
+
+Make progress easy to understand in Arabic and English.
+
+⸻
+
+15. REWARDS AND REDEMPTION
+
+Each restaurant maintains its own reward catalog.
+
+Example:
+
+Amman Coffee House:
+
+* Free espresso.
+* Free regular coffee.
+* Free specialty drink.
+
+Jordan Burger Co:
+
+* Free fries.
+* Meal upgrade.
+* Free burger.
+
+Petra Pizza:
+
+* Discounted pizza.
+* Free side dish.
+* Free eligible pizza.
+
+All reward names, descriptions, costs, availability, and conditions must be configurable.
+
+Reward Records
+
+Include:
+
+* Reward ID.
+* Restaurant ID.
+* Name.
+* Description.
+* Image.
+* Points cost.
+* Availability status.
+* Stock limit, where applicable.
+* Start and expiration dates.
+* Eligible locations.
+* Terms and conditions.
+
+Redemption Workflow
+
+1. Customer selects a reward.
+2. Backend validates eligibility.
+3. Backend checks the points balance.
+4. Backend verifies reward availability.
+5. Backend atomically reserves or deducts the points.
+6. Backend creates a unique redemption record.
+7. System generates a secure redemption code.
+8. Authorized staff or the ordering system validates the code.
+9. The reward is marked as fulfilled when appropriate.
+10. The customer’s loyalty history is updated.
+
+Support appropriate statuses, including:
+
+* Reserved.
+* Issued.
+* Redeemed.
+* Expired.
+* Canceled.
+* Reversed, where appropriate.
+
+Prevent duplicate redemption and replay attacks.
+
+Clearly distinguish a reward being reserved from a reward being fulfilled.
+
+For in-store redemption, provide a staff verification interface that can scan or enter the redemption code.
+
+⸻
+
+16. ONLINE ORDERING
+
+Implement a restaurant-specific ordering system.
+
+Customers should be able to:
+
+* Browse the menu.
+* Select products.
+* Customize items.
+* Add products to the cart.
+* Apply eligible promotions.
+* Apply eligible loyalty rewards.
+* Choose pickup or delivery.
+* Submit an order.
+* Pay using a supported payment method.
+* Track the order.
+* View order history.
+
+Restaurant staff should be able to receive and manage orders through the restaurant dashboard.
+
+Order Data
+
+Include:
+
+* Order ID.
+* Restaurant ID.
+* Customer ID.
+* Location ID.
+* Items and item snapshots.
+* Quantities.
+* Unit prices.
+* Modifiers.
+* Subtotal.
+* Discounts.
+* Delivery fees.
+* Applicable taxes and charges.
+* Total.
+* Currency.
+* Payment status.
+* Fulfillment status.
+* Loyalty points earned.
+* Loyalty points redeemed.
+* Timestamps.
+
+Store order item descriptions and prices as snapshots so historical orders remain understandable after menu changes.
+
+Order Security
+
+* Recalculate totals on the server.
+* Validate item availability.
+* Validate discounts and rewards.
+* Use idempotency for checkout.
+* Prevent duplicate orders from repeated requests.
+* Verify payment status through trusted provider events.
+* Prevent customers from modifying another customer’s order.
+* Keep an auditable order status history.
+
+Do not mark an order as paid merely because the client redirects to a success page.
+
+⸻
+
+17. PAYMENT INTEGRATION
+
+Create a provider-independent payment architecture.
+
+The initial launch market is Jordan, so provider selection must be based on actual support for:
+
+* Jordanian merchants.
+* JOD transactions.
+* Merchant settlement.
+* Supported payment methods.
+* Refunds.
+* Webhooks.
+* Transaction reconciliation.
+* Required onboarding and compliance procedures.
+
+Research and document candidate providers before implementing a live integration.
+
+Do not assume a provider is available merely because it is popular internationally.
+
+Payment Workflow
+
+1. Customer checks out.
+2. Backend validates the cart and order.
+3. Backend calculates the final total.
+4. Backend creates a pending order.
+5. Backend initiates payment through the configured provider.
+6. Customer completes the provider’s payment flow.
+7. Backend verifies the payment result through a trusted callback or API.
+8. Order status is updated.
+9. Loyalty points are awarded when the order qualifies.
+10. The customer receives confirmation.
+
+Use signed webhook validation, idempotency, and secure provider credentials.
+
+Support payment statuses such as:
+
+* Pending.
+* Authorized.
+* Paid.
+* Failed.
+* Canceled.
+* Refund pending.
+* Partially refunded.
+* Refunded.
+
+Do not store raw card details.
+
+Payment Abstraction
+
+Create a consistent internal interface for:
+
+* Creating payment sessions.
+* Verifying payment results.
+* Processing refund requests.
+* Receiving provider webhooks.
+* Retrieving transaction status.
+
+The application should not need a complete rewrite when the company adds a different supported payment provider.
+
+Prototype Mode
+
+If provider credentials are unavailable, create a clearly labeled sandbox or simulated payment mode.
+
+Never represent simulated payments as real payments.
+
+Disable production payment claims until the integration has been configured and tested.
+
+⸻
+
+18. IN-STORE PURCHASES AND POS INTEGRATION
+
+The platform must support loyalty points for purchases made both through the mobile application and inside the physical restaurant.
+
+Design the architecture for two methods.
+
+Method A: POS Integration
+
+When a supported POS system is available:
+
+1. POS records a completed transaction.
+2. The integration securely sends the transaction to the platform.
+3. The platform validates the source and transaction identity.
+4. The system identifies the eligible customer where possible.
+5. The backend calculates qualifying points.
+6. The transaction is recorded in the ledger.
+7. The customer sees the points in their account.
+
+Support secure webhooks, API authentication, idempotency, and transaction reconciliation.
+
+Do not assume every restaurant’s POS system offers the same API capabilities.
+
+Method B: Staff-Assisted QR or Code Verification
+
+For restaurants without POS integration:
+
+1. Staff creates or verifies a transaction through an authorized interface.
+2. The system generates a unique, time-limited transaction token.
+3. The customer scans the code or enters the token.
+4. The backend verifies the transaction.
+5. The points are awarded once.
+6. The transaction is recorded.
+
+A customer must never be able to enter any arbitrary spending amount and award themselves points.
+
+Use server-generated transaction records, staff permissions, expiration, and single-use enforcement.
+
+Clearly identify transactions that have not been independently verified.
+
+⸻
+
+19. DATABASE DESIGN
+
+Design a relational PostgreSQL database with foreign keys, indexes, constraints, and migrations.
+
+At minimum, include the following tables or equivalent normalized entities.
+
+Identity and Tenancy
+
+* users
+* profiles
+* restaurants
+* restaurant_locations
+* restaurant_memberships
+* platform_roles
+* staff_permissions
+* restaurant_configurations
+
+Application Management
+
+* mobile_applications
+* application_builds
+* application_versions
+* application_assets
+* application_release_records
+* store_submission_records
+* store_listing_localizations
+* release_approvals
+
+Subscriptions
+
+* subscription_plans
+* restaurant_subscriptions
+* subscription_invoices
+* subscription_payment_records
+* subscription_events
+
+Menu and Ordering
+
+* menu_categories
+* menu_items
+* menu_item_localizations
+* menu_item_variants
+* menu_item_modifiers
+* menu_item_modifier_options
+* orders
+* order_items
+* order_item_modifiers
+* order_status_events
+* delivery_addresses
+* delivery_zones
+
+Payments
+
+* payment_transactions
+* payment_events
+* payment_refunds
+* payment_provider_configurations
+* payment_webhook_events
+
+Loyalty
+
+* loyalty_programs
+* loyalty_rule_versions
+* customer_loyalty_accounts
+* points_ledger
+* purchase_records
+* purchase_verification_tokens
+* reward_catalog
+* reward_redemptions
+* redemption_events
+
+Gamification
+
+* challenges
+* customer_challenge_progress
+* membership_tiers
+* customer_achievements
+* gamification_events
+* promotional_campaigns
+* campaign_eligibility_records
+
+Communication and Auditing
+
+* notifications
+* notification_preferences
+* audit_logs
+* idempotency_records
+* support_records, where appropriate
+
+Add additional tables when justified by the implementation.
+
+Use:
+
+* Foreign keys.
+* Appropriate uniqueness constraints.
+* Transaction-safe operations.
+* Indexed tenant IDs.
+* Exact monetary representations.
+* UTC timestamps.
+* Explicit time-zone conversion rules.
+* Data retention policies.
+* Safe deletion and anonymization procedures.
+
+Do not store unnecessary sensitive customer information.
+
+Do not silently delete transaction history when a restaurant or customer is deactivated.
+
+Document the database schema and important relationships.
+
+⸻
+
+20. API DESIGN
+
+Create maintainable backend endpoints or equivalent server-side operations.
+
+Group them by domain.
+
+Authentication
+
+* Register.
+* Login.
+* Logout.
+* Password recovery.
+* Profile management.
+
+Restaurant Management
+
+* Create restaurant.
+* Update restaurant.
+* Configure branding.
+* Manage locations.
+* Manage restaurant staff.
+* Manage subscription configuration.
+
+Mobile Applications
+
+* Create application configuration.
+* Update branding.
+* Preview configuration.
+* Create build record.
+* Record build results.
+* Approve release.
+* Record store submission status.
+* Record store approval or rejection.
+
+Menu
+
+* List categories.
+* List products.
+* Retrieve product details.
+* Create and update products.
+* Configure availability.
+
+Orders
+
+* Create order.
+* Retrieve order details.
+* List customer orders.
+* List restaurant orders.
+* Update order status.
+* Cancel eligible orders.
+* Request refunds.
+
+Payments
+
+* Initiate payment.
+* Retrieve payment status.
+* Receive provider webhook.
+* Process payment event.
+* Request refund.
+
+Loyalty
+
+* Retrieve balance.
+* Retrieve transaction history.
+* Verify purchase.
+* Award points.
+* Reverse eligible points.
+* Retrieve rewards.
+* Redeem reward.
+* Verify redemption.
+
+Gamification
+
+* List active challenges.
+* Retrieve challenge progress.
+* Process qualifying events.
+* Retrieve membership status.
+* Retrieve achievements.
+
+Analytics
+
+* Restaurant analytics.
+* Loyalty analytics.
+* Order analytics.
+* Platform-wide analytics.
+
+For each endpoint, implement authentication, authorization, validation, consistent error handling, and audit logging where appropriate.
+
+Document the API.
+
+Do not expose privileged database credentials or secret provider tokens through the API.
+
+⸻
+
+21. SECURITY REQUIREMENTS
+
+Treat the platform as a commercial system that will eventually handle customer accounts, order histories, payments, and loyalty balances.
+
+Implement:
+
+* Secure authentication.
+* Role-based authorization.
+* Tenant isolation.
+* Server-side validation.
+* Secure session handling.
+* Rate limiting for sensitive operations.
+* Protection against common injection attacks.
+* Secure file uploads.
+* Secret management.
+* Payment webhook verification.
+* Idempotent transaction processing.
+* Audit logs.
+* Appropriate error handling.
+* Secure account recovery.
+* Account deletion or deactivation workflows.
+* Protection against unauthorized privilege escalation.
+* Safe logging that excludes secrets and unnecessary sensitive data.
+
+Do not include real credentials in source control.
+
+Use environment variables or the platform’s supported secret manager.
+
+Provide an example environment file containing placeholder names only.
+
+Never commit actual production secrets.
+
+Do not claim the system is secure merely because these features are listed. Implement and test them.
+
+⸻
+
+22. PRIVACY AND CUSTOMER DATA
+
+Create privacy-conscious customer account functionality.
+
+Support:
+
+* Viewing personal information.
+* Updating permitted profile details.
+* Managing communication preferences.
+* Requesting account deletion.
+* Accessing relevant account history.
+* Viewing loyalty program terms.
+* Viewing reward expiration information.
+* Viewing applicable privacy notices.
+
+Collect only the information necessary to operate the service.
+
+Keep restaurant-specific customer access appropriately restricted.
+
+Do not share customer data across restaurants without an explicit, justified, disclosed, and appropriately authorized purpose.
+
+Document data retention, deletion, anonymization, and backup considerations.
+
+Before commercial launch in Jordan, verify applicable data protection requirements and any obligations relating to cross-border hosting or processing.
+
+Do not present legal compliance as established until it has been reviewed against the actual deployment and business arrangements.
+
+⸻
+
+23. NOTIFICATIONS
+
+Design a notification system supporting:
+
+* Order confirmation.
+* Order status updates.
+* Points earned.
+* Reward unlocked.
+* Reward redemption confirmation.
+* Challenge progress.
+* Challenge completion.
+* Membership tier changes.
+* Promotional offers.
+* Reward expiration reminders.
+
+Support Arabic and English notification content.
+
+Allow customers to manage appropriate promotional notification preferences.
+
+Separate essential transactional notifications from optional marketing notifications.
+
+Do not send real push notifications until the relevant services and permissions have been configured.
+
+For the prototype, display in-app notifications and clearly label any simulated delivery.
+
+⸻
+
+24. ANALYTICS
+
+Provide restaurant-level analytics for:
+
+* Total customers.
+* Active loyalty members.
+* New registrations.
+* Orders by period.
+* Average order value.
+* Verified spending.
+* Points issued.
+* Points redeemed.
+* Outstanding points liability indicators.
+* Most popular rewards.
+* Redemption rates.
+* Challenge participation.
+* Repeat purchase frequency.
+* Menu item popularity.
+
+Provide platform-level analytics for:
+
+* Total restaurants.
+* Active restaurants.
+* Subscription status.
+* Application build status.
+* Release activity.
+* Total orders, where data is available.
+* Loyalty engagement.
+* System operational metrics.
+
+Only calculate financial metrics from appropriate authoritative records.
+
+Do not fabricate sales, revenue, retention, or engagement statistics.
+
+Clearly distinguish demo data from live operational data.
+
+⸻
+
+25. APPLICATION BUILD AND RELEASE AUTOMATION
+
+Create a controlled application production workflow.
+
+The objective is to reduce repetitive work when preparing new restaurant applications.
+
+For each restaurant, the system should be able to generate a configuration package containing:
+
+* Restaurant identity.
+* Display name.
+* Application identifiers.
+* Brand assets.
+* Supported languages.
+* Feature configuration.
+* Public contact details.
+* Backend environment configuration.
+
+Implement a repeatable build process that can:
+
+1. Validate the configuration.
+2. Check required branding assets.
+3. Validate unique application identifiers.
+4. Generate or update the necessary build configuration.
+5. Create a build record.
+6. Trigger the configured build workflow.
+7. Record build logs or references.
+8. Record success or failure.
+9. Require human review.
+10. Prepare release metadata.
+
+Where supported, integrate with a suitable managed mobile build service.
+
+Do not fabricate a successful build when no build was executed.
+
+Do not automatically publish untested builds.
+
+Keep signing certificates, private keys, and store credentials in appropriate secure systems.
+
+Do not expose these secrets to restaurant owners or ordinary staff.
+
+For the initial prototype, it is acceptable for build triggering and store submission to be represented by an administrative workflow if real build credentials are unavailable. Clearly label these steps as simulated.
+
+⸻
+
+26. USER INTERFACE DESIGN
+
+Create a professional commercial interface.
+
+Administrative Dashboard
+
+Use a modern SaaS design with:
+
+* Sidebar navigation.
+* Summary cards.
+* Search and filters.
+* Data tables.
+* Status indicators.
+* Forms.
+* Charts.
+* Activity logs.
+* Clear loading and error states.
+
+Restaurant Dashboard
+
+Make the interface simple enough for a small restaurant owner without technical experience.
+
+Prioritize:
+
+* Today’s orders.
+* Menu management.
+* Loyalty settings.
+* Rewards.
+* Customer engagement.
+* Reports.
+
+Customer Mobile App
+
+Use a polished consumer design inspired by the convenience of major restaurant loyalty applications, without copying their branding, copyrighted assets, or distinctive proprietary interface.
+
+Prioritize:
+
+* Fast access to ordering.
+* Clear loyalty balance.
+* Easy reward redemption.
+* Simple checkout.
+* Visible order status.
+* Engaging but restrained gamification.
+
+Arabic Support
+
+Implement genuine RTL layouts rather than merely translating the text.
+
+Test:
+
+* Navigation alignment.
+* Forms.
+* Icons.
+* Numbers.
+* Currency.
+* Mixed Arabic and English text.
+* Product descriptions.
+* Error messages.
+* Order receipts.
+
+Ensure the interface is responsive and accessible.
+
+⸻
+
+27. DEMONSTRATION DATA
+
+Seed the prototype with four fictional restaurants.
+
+Restaurant 1: Amman Coffee House
+
+Language: Arabic and English.
+
+Currency: JOD.
+
+Example loyalty rule: 10 points per eligible JOD spent.
+
+Example rewards:
+
+* Espresso.
+* Regular coffee.
+* Specialty drink.
+
+Restaurant 2: Jordan Burger Co
+
+Example rewards:
+
+* Free fries.
+* Meal upgrade.
+* Free burger.
+
+Restaurant 3: Petra Pizza
+
+Example rewards:
+
+* Discounted pizza.
+* Free side dish.
+* Eligible pizza reward.
+
+Restaurant 4: Sweet Spot Bakery
+
+Example rewards:
+
+* Pastry reward.
+* Dessert reward.
+* Bakery gift box.
+
+Give each restaurant a different logo placeholder, color scheme, menu, loyalty configuration, and rewards catalog.
+
+Create sample customers, orders, purchases, redemptions, and challenges.
+
+Clearly label all seed data as demonstration data.
+
+Do not use real people’s personal information.
+
+⸻
+
+28. END-TO-END DEMONSTRATION
+
+Implement a complete demonstration for Amman Coffee House.
+
+The demonstration should show:
+
+1. A customer opens the restaurant’s branded mobile application.
+2. The customer registers or signs in.
+3. The customer browses the menu.
+4. The customer adds a product to the cart.
+5. The backend calculates the total.
+6. The customer selects pickup or delivery where available.
+7. The customer proceeds through the configured payment flow.
+8. The payment result is verified, or a clearly labeled demo payment is simulated.
+9. The restaurant receives the order.
+10. Restaurant staff updates the order status.
+11. The qualifying order earns loyalty points exactly once.
+12. The customer sees the updated balance.
+13. The customer views available rewards.
+14. The customer redeems an eligible reward.
+15. The backend verifies the balance and reward eligibility.
+16. A unique redemption code is generated.
+17. Restaurant staff verifies the redemption.
+18. The customer sees the updated loyalty history.
+19. The restaurant dashboard displays the relevant transaction.
+20. The platform administrator can inspect the application’s configuration and release records.
+
+Also demonstrate a separate in-store purchase workflow through the staff-assisted QR or code mechanism.
+
+If live payment processing, POS integration, mobile builds, or push notifications are not configured, clearly identify those specific portions as simulated.
+
+Do not misrepresent simulated functionality as a live integration.
+
+⸻
+
+29. TESTING AND ACCEPTANCE CRITERIA
+
+Create automated tests for the core business rules.
+
+Tenant Isolation
+
+* Restaurant A cannot access Restaurant B’s private records.
+* Restaurant staff cannot access platform administration.
+* Customers cannot access other customers’ orders.
+* Unauthorized users cannot modify restaurant configuration.
+
+Loyalty
+
+* Points are calculated correctly.
+* Duplicate purchase events do not award points twice.
+* Refunds follow the configured reversal policy.
+* Concurrent operations cannot overspend points.
+* Historical ledger entries remain intact.
+* Customers cannot edit their own balances.
+
+Ordering
+
+* Server-side order totals are correct.
+* Unavailable products cannot be purchased.
+* Invalid discounts are rejected.
+* Repeated checkout requests do not create duplicate orders.
+* Order status transitions are validated.
+
+Payments
+
+* Failed payments do not earn qualifying purchase points.
+* Unverified callbacks cannot mark orders as paid.
+* Duplicate payment webhooks are handled idempotently.
+* Refund events update the appropriate records.
+
+Rewards
+
+* Insufficient balances prevent redemption.
+* Duplicate redemption attempts are rejected.
+* Expired rewards cannot be redeemed.
+* Stock limits are enforced.
+* Canceled redemptions follow the defined policy.
+
+Mobile Applications
+
+* Each restaurant has a unique application configuration.
+* Branding is loaded correctly.
+* Identifiers are validated for uniqueness.
+* Build records are associated with the correct restaurant.
+* Internal approval is distinct from store approval.
+
+Localization
+
+* Arabic layouts render correctly.
+* RTL navigation works.
+* English layouts render correctly.
+* Currency and date formatting follow configuration.
+
+Run available tests and fix failures before marking a feature complete.
+
+Document any test that could not be executed.
+
+⸻
+
+30. DEVELOPMENT PHASES
+
+Implement the project incrementally.
+
+Do not attempt to build every feature in one unverified step.
+
+Phase 1: Technical Foundation
+
+Implement:
+
+* Project structure.
+* Database configuration.
+* Database migrations.
+* Authentication.
+* User roles.
+* Restaurant records.
+* Restaurant memberships.
+* Tenant isolation.
+* Initial administrative dashboard.
+* Four demo restaurants.
+* Arabic and English interface foundations.
+* Automated tests for authentication and tenant isolation.
+
+Acceptance criteria:
+
+An administrator can create and manage restaurants. Authorized users can access only their permitted records. The application runs reliably in the development environment.
+
+Phase 2: Restaurant Branding and Management
+
+Implement:
+
+* Restaurant onboarding.
+* Logo uploads.
+* Brand configuration.
+* Restaurant dashboard.
+* Location management.
+* Menu categories.
+* Menu item management.
+* Arabic and English content.
+* Restaurant-specific customer-facing previews.
+
+Acceptance criteria:
+
+Each demo restaurant has a distinct branded experience controlled through configuration rather than separate hardcoded applications.
+
+Phase 3: Loyalty and Gamification
+
+Implement:
+
+* Loyalty program configuration.
+* Points ledger.
+* Purchase verification.
+* Reward catalog.
+* Redemption.
+* Challenges.
+* Membership tiers.
+* Achievements.
+* Progress tracking.
+* Staff-assisted verification.
+
+Acceptance criteria:
+
+Points, rewards, and gamification work correctly and remain isolated between restaurants.
+
+Phase 4: Ordering
+
+Implement:
+
+* Customer menu.
+* Cart.
+* Checkout calculations.
+* Pickup and delivery configuration.
+* Order creation.
+* Restaurant order management.
+* Order status tracking.
+* Customer order history.
+
+Acceptance criteria:
+
+A customer can place a valid demonstration order, and authorized staff can manage it.
+
+Phase 5: Payments
+
+Implement the selected provider’s sandbox integration after confirming merchant eligibility and technical requirements.
+
+Implement:
+
+* Payment sessions.
+* Trusted payment verification.
+* Webhooks.
+* Idempotency.
+* Payment status handling.
+* Refund workflows.
+
+Acceptance criteria:
+
+The sandbox flow is tested successfully. Simulated payments are clearly separated from real payments.
+
+Phase 6: Mobile Application
+
+Implement:
+
+* Shared mobile application codebase.
+* Restaurant-specific configuration.
+* Branded customer experience.
+* Unique application identifiers.
+* Build configuration.
+* Version tracking.
+* Testing workflow.
+
+Acceptance criteria:
+
+The application builds successfully for the supported development targets, or any unavailable build infrastructure is clearly documented.
+
+Phase 7: Release Management
+
+Implement:
+
+* Application build records.
+* Internal approval.
+* Store listing preparation.
+* Submission tracking.
+* Release history.
+* Secure credential handling.
+
+Acceptance criteria:
+
+The team can manage each restaurant’s release workflow and distinguish internal preparation from actual store submission and approval.
+
+Phase 8: Production Preparation
+
+Complete:
+
+* Security review.
+* Tenant-isolation tests.
+* Payment verification tests.
+* Data retention documentation.
+* Backup and recovery plan.
+* Error monitoring.
+* Deployment documentation.
+* Privacy and account deletion workflows.
+* Operational documentation.
+* Store policy review.
+
+Acceptance criteria:
+
+Produce a documented production-readiness assessment. Do not claim production readiness if critical controls or external integrations remain incomplete.
+
+⸻
+
+31. DOCUMENTATION REQUIREMENTS
+
+Create a comprehensive README containing:
+
+* Project overview.
+* Architecture.
+* Technology stack.
+* Project directory structure.
+* Installation instructions.
+* Environment variable setup.
+* Database setup.
+* Migration commands.
+* Seed data commands.
+* Development commands.
+* Testing commands.
+* Deployment instructions.
+* Mobile build instructions.
+* Payment provider setup.
+* Security considerations.
+* Troubleshooting.
+
+Also provide:
+
+1. Database schema documentation.
+2. API documentation.
+3. Role and permission documentation.
+4. Tenant-isolation design.
+5. Loyalty calculation rules.
+6. Order and payment lifecycle documentation.
+7. Mobile application build process.
+8. Store submission checklist.
+9. External integration inventory.
+10. Production-readiness checklist.
+
+Maintain a project status document that identifies completed, in-progress, simulated, and unimplemented features.
+
+⸻
+
+32. IMPORTANT IMPLEMENTATION RULES
+
+Follow these rules throughout development.
+
+1. Implement real functionality instead of producing only mockup screens.
+2. Use reusable components and maintainable code.
+3. Keep business logic out of presentation components.
+4. Use server-side validation for all sensitive operations.
+5. Protect tenant boundaries from the beginning.
+6. Never expose secret credentials in frontend code.
+7. Never hardcode production credentials.
+8. Never fabricate successful payments, builds, tests, or store approvals.
+9. Do not silently replace working functionality with placeholder screens.
+10. Do not introduce unnecessary paid services without explaining their purpose and cost.
+11. Prefer free or low-cost development options when they meet the requirements.
+12. Identify any paid service before requiring it.
+13. Keep changes small enough to test and review.
+14. Run relevant tests after changes.
+15. Explain significant architecture decisions.
+16. Preserve existing working features when adding new modules.
+17. Use version control and make changes easy to review and revert.
+18. Maintain clear separation between demo mode and production mode.
+19. Do not ask me to provide credentials unless a specific integration actually requires them.
+20. Do not publish applications or initiate real financial transactions without explicit authorization.
+
+If you encounter an architectural decision that materially affects cost, security, store approval, or long-term maintainability, explain the alternatives and recommend one before committing to a costly implementation.
+
+⸻
+
+33. FIRST ACTION: BEGIN PHASE 1
+
+Start by inspecting the available Replit development environment and creating the project structure.
+
+Then:
+
+1. Present a concise proposed architecture and explain any important technical choices.
+2. Identify any essential external services that are genuinely required for Phase 1.
+3. Create the actual source files.
+4. Configure the database.
+5. Create and run the initial migrations.
+6. Implement authentication and role-based permissions.
+7. Create the restaurant and membership models.
+8. Implement tenant isolation.
+9. Create the central administration dashboard.
+10. Seed the four fictional restaurants.
+11. Add Arabic and English interface foundations.
+12. Write and execute tests for the initial functionality.
+13. Fix any errors found.
+14. Provide instructions for running the application.
+15. Summarize exactly what works, what has been simulated, and what remains.
+
+Do not begin expensive external integrations or attempt to publish mobile applications during Phase 1.
+
+After Phase 1 passes its acceptance criteria, stop and provide a clear review of the implementation before proceeding to Phase 2.
+
+I want to build a sustainable business, not just a demo that looks impressive.
+
+Prioritize security, reusable architecture, manageable operating costs, independent restaurant branding, reliable loyalty accounting, and a realistic path to publishing separate mobile applications for restaurants in Jordan.
+
+Begin Phase 1 now.
